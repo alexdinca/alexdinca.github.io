@@ -1056,10 +1056,11 @@ section {
   font-size: 14px;
   color: #728394;
 }
-
-.contact .info .email,
-.contact .info .phone {
-  margin-top: 40px;
+@media (max-width: 992px) {
+  .contact .info .email,
+  .contact .info .phone {
+    margin-top: 40px;
+  }
 }
 
 .contact .info .email:hover i,
