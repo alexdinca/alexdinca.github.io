@@ -60,7 +60,7 @@
   <section id="hero" class="d-flex flex-column justify-content-center">
     <div class="container" data-aos="zoom-in" data-aos-delay="100">
       <h1>Alex Dincă</h1>
-      <p><span class="typed" data-typed-items="IT Business Consultant, Product and Project Manager, Photographer and Videographer, Adventure Tour Guide"></span></p>
+      <p><span class="typed" data-typed-items="IT Business Consultant, Photo and Video, Adventure Guide"></span></p>
       <div class="social-links">
         <a href="https://www.linkedin.com/in/deneka/" class="linkedin"><i class="bx bxl-linkedin"></i></a>
         <a href="https://www.instagram.com/dnkalex" class="instagram"><i class="bx bxl-instagram"></i></a>
@@ -792,9 +792,43 @@
   <script src="assets/vendor/typed.js/typed.min.js"></script>
   <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
   <script src="assets/vendor/php-email-form/validate.js"></script>
+  <script src="assets/vendor/jquery-3.6.1.min.js"></script>
 
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
+  <script type="text/javascript">
+    window.setInterval(function () {
+        var url = getCurrent();
+        //start animation
+        $('#hero').delay(1000).fadeTo(1000, 0.2, function () {
+          $(this).css('background', 'url(' + url + ')');          
+          $(this).css('background-size', 'cover');
+          $(this).css('background-repeat', 'no-repeat');
+          $(this).css('background-position-x', 'right');
+          $(this).css('background-position-y', 'top');
+        }).fadeTo('slow', 1);
+      }, 5000);
+
+      // We start with index of 1 because we want to skip the first image, 
+      // Else we would be replacing it with the same image.
+      var index = 1;
+      var arrayOfPartenaires = [
+        "assets/img/hero-bg.jpg",
+        "assets/img/hero-bg2.jpg",
+        "assets/img/hero-bg3.jpg",        
+      ];
+
+      function getCurrent() {
+        // We check if the index is higher than the ammount in the array.
+        // If thats true set 0 (beginning of array)
+        if (index > arrayOfPartenaires.length - 1) {
+          index = 0;
+        }
+        var returnValue = index;
+        index++;
+        return arrayOfPartenaires[returnValue];
+      }
+  </script>
 
 </body>
 
